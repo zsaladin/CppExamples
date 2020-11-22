@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <deque>
 #include <algorithm>
 
 using namespace std;
@@ -16,12 +16,12 @@ class Rectangle : public Shape
 
 };
 
-
-// Queue - vector : has-a 관계
+// deque 구현이 맞습니다. 강의에 나온 부분은 잘못 됐습니다
+// Queue - deque : has-a 관계
 class Queue0
 {
 private:
-    vector<int> v;
+    deque<int> v;
 public:
     void push(int value)
     {
@@ -30,24 +30,24 @@ public:
 
     void pop()
     {
-        v.pop_back();
+        v.pop_front();
     }
 
     int top()
     {
-        return v.back();
+        return v.front();
     }
 };
 
 
-// public 상속은 vector의 모든 인터페이스를 public으로 상속한다.
-// private 상속은 vector의 모든 인터페이스를 private으로 상속한다.
-// 따라서 Queue1에서는 vector의 인터페시를 사용할 수 있지만 외부에서는 사용할 수 없다
+// public 상속은 deque의 모든 인터페이스를 public으로 상속한다.
+// private 상속은 deque의 모든 인터페이스를 private으로 상속한다.
+// 따라서 Queue1에서는 deque의 인터페시를 사용할 수 있지만 외부에서는 사용할 수 없다
 // 왠만하면 사용하지 말자.
-// vector의 protected 멤버 함수를 사용하고 싶은 경우 사용하면 좋다
+// deque의 protected 멤버 함수를 사용하고 싶은 경우 사용하면 좋다
 // 지정자를 생략하면 private 상속(struct의 경우는 public)
 
-class Queue1 : private vector<int>
+class Queue1 : private deque<int>
 {
 public:
     void push(int value)
@@ -57,18 +57,18 @@ public:
 
     void pop()
     {
-        pop_back();
+        pop_front();
     }
 
     int top()
     {
-        return back();
+        return front();
     }
 };
 
 
-// vector의 인터페이스를 Queue2의 자식에게까지 공개하기 위해 protected 상속을 한다
-class Queue2 : protected vector<int>
+// deque의 인터페이스를 Queue2의 자식에게까지 공개하기 위해 protected 상속을 한다
+class Queue2 : protected deque<int>
 {
 public:
     virtual void push(int value)
@@ -78,12 +78,12 @@ public:
 
     virtual void pop()
     {
-        pop_back();
+        pop_front();
     }
 
     virtual int top()
     {
-        return back();
+        return front();
     }
 
     virtual ~Queue2()
