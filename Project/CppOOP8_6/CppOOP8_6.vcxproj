@@ -21,10 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{478c63fe-3877-4db0-a701-76ee3f3b38ee}</ProjectGuid>
-    <RootNamespace>CppOPP712</RootNamespace>
+    <ProjectGuid>{985f64f7-3fc2-430d-9366-d06d2a63f13f}</ProjectGuid>
+    <RootNamespace>CppOOP86</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>CppOOP7_1_2</ProjectName>
+    <ProjectName>CppOOP8_6_1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,6 +141,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Ranges.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ranges.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
